@@ -1,0 +1,70 @@
+{% extends "home.html"%}
+{% block body %}
+<!-- component -->
+<div class="flex mb:flex-col flex-row p-2 w-full ">
+    <div class="inline-block relative w-full p-2">
+        <select class="mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="usertype" id="TypeUser"  type="text"  role="button" required>
+                <option selected>User name</option>
+                 <option value="admin">Jacob</option>
+                 <option value="staff">Chris</option>
+                 <option value="staff">Rosas</option>
+                 <option value="staff">Cisneros</option>
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+        </div>
+    </div>
+    <div class="p-2">
+        <a href="#" class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin"  type="submit" name="edit">Consult</a>
+    </div>
+</div>
+<div class="table w-full p-2">
+    <table class="w-full border">
+        <thead>
+            <tr class="bg-gray-50 border-b">
+                <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                    <div class="flex items-center justify-center">
+                        ID ACTIVITIES
+                    </div>
+                </th>
+                <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                    <div class="flex items-center justify-center">
+                       ACTIVITIES                       
+                    </div>
+                </th>
+                <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                    <div class="flex items-center justify-center">
+                        DESCRIPCION                        
+                    </div>
+                </th>
+                <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                    <div class="flex items-center justify-center">
+                        STATUS                        
+                    </div>
+                </th>
+                <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                    <div class="flex items-center justify-center">
+                        ACTION
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for  activity in activities %}
+            <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
+                <td class="p-2 border-r">{{activity.1}}</td>
+                <td class="p-2 border-r">{{activity.4}}</td>
+                <td class="p-2 border-r">{{activity.5}}</td>
+                <td class="p-2 border-r">
+                    <input type="checkbox">
+                </td>
+                <td>
+                    <a href="#" class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin"  type="submit" name="update">Update</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>JMG</title>
+</head>
+<body>
+	<div class="relative min-h-screen flex">
+		<div class=" flex flex-col justify-between bg-yellow-200 w-64 pb-4 px-2">
+			<div class="flex flex-col justify-around space-y-6">
+				<div class="text-center">
+					<h1 class="text-yellow-500 text-4xl" >TASK</h1>
+					<h2 class="text-gray-600 text-2xl" >MANAGEMENT</h2>
+				</div>
+				<nav>
+					<a class="block py-2.5 px-4 rounded hover:bg-yellow-400" href="newactivity">New Activity</a>
+					<a class="block py-2.5 px-4 rounded hover:bg-yellow-400" href="consultactivity">Consult Activities</a>
+					<a class="block py-2.5 px-4 rounded hover:bg-yellow-400" href="capturefeedback">Capture Feedback</a>
+				</nav>
+			</div>
+
+			<a href="/logout" class="flex mx-auto rounded bg-red-400 hover:bg-red-600"> <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>Logout</a>
+		</div>
+		<div class="flex flex-col w-full "> 
+			<div class="flex justify-end items-center bg-gray-200">
+				<p class="px-2 text-sm">Profile Info:</p>
+				<div class="px-2 text-xs">
+					<p>Name:{{current_user.fullname}} </p>
+					<p>Email:{{current_user.email}} </p>
+					<p>User Type:{{current_user.usertype}} </p>
+				</div>
+				<img class="px-2 h-16 w-26" src="https://w7.pngwing.com/pngs/340/956/png-transparent-profile-user-icon-computer-icons-user-profile-head-ico-miscellaneous-black-desktop-wallpaper.png" type="button">
+			</div>
+			{% block body%}
+            
+			{% endblock %}	
+		</div>
+		
+	</div>	
+</body>
+</html>
